@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?package Ui?>
+
+<VBox prefHeight="435.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Ui.MainController">
+  <children>
+      <MenuBar opacity="0.81">
+        <menus>
+          <Menu mnemonicParsing="false" text="帮助文档">
+            <items>
+              <MenuItem fx:id="help" mnemonicParsing="false" onAction="#helpfile" text="使用文档" />
+                  <MenuItem fx:id="technology" mnemonicParsing="false" onAction="#technologyfile" text="技术文档" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="样本文件">
+               <items>
+                  <MenuItem fx:id="sample" mnemonicParsing="false" onAction="#samplefile" text="样本文件" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="工具详情">
+               <items>
+                  <MenuItem fx:id="web" mnemonicParsing="false" onAction="#weburl" text="关于工具" />
+               </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="376.0" prefWidth="640.0" style="-fx-background-color: bule;" VBox.vgrow="ALWAYS">
+            <Button layoutX="495.0" layoutY="49.0" mnemonicParsing="false" onMouseClicked="#openfile" text="上传空闲时间文件" />
+            <Label layoutX="29.0" layoutY="96.0" prefHeight="15.0" prefWidth="112.0" text="排班方式" textOverrun="CENTER_ELLIPSIS">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <TextField fx:id="filepath" layoutX="58.0" layoutY="49.0" prefHeight="23.0" prefWidth="429.0" />
+            <Label layoutX="5.0" layoutY="53.0" text="文件路径" />
+            <RadioButton fx:id="Buttonschedule1" layoutX="39.0" layoutY="153.0" mnemonicParsing="false" onMouseClicked="#schedule1" text="日常排班">
+            <toggleGroup>
+               <ToggleGroup fx:id="schedule" />
+            </toggleGroup></RadioButton>
+            <RadioButton fx:id="Buttonschedule2" layoutX="39.0" layoutY="184.0" mnemonicParsing="false" onMouseClicked="#schedule2" text="新同学排班" toggleGroup="$schedule" />
+            <RadioButton fx:id="Buttonschedule3" layoutX="39.0" layoutY="214.0" mnemonicParsing="false" onMouseClicked="#schedule3" text="活动排班" toggleGroup="$schedule" />
+            <RadioButton fx:id="Buttonschedule4" layoutX="39.0" layoutY="241.0" mnemonicParsing="false" onMouseClicked="#schedule4" text="笔试后排班" toggleGroup="$schedule" />
+            <Label layoutX="284.0" layoutY="100.0" prefHeight="15.0" prefWidth="112.0" text="值班人数：" textOverrun="CENTER_ELLIPSIS">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="284.0" layoutY="131.0" prefHeight="20.0" prefWidth="152.0" text="班内老成员人数：" textOverrun="CENTER_ELLIPSIS">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="284.0" layoutY="159.0" prefHeight="15.0" prefWidth="112.0" text="值班时间分布：" textOverrun="CENTER_ELLIPSIS">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+
+            <ChoiceBox fx:id="headcount" layoutX="412.0" layoutY="98.0" prefHeight="15.0" prefWidth="162.0">
+              <items>
+                  <FXCollections fx:factory="observableArrayList">
+                      <String fx:value="1" />
+                      <String fx:value="2" />
+                      <String fx:value="3" />
+                      <String fx:value="4" />
+                      <String fx:value="5" />
+                  </FXCollections>
+              </items>
+            </ChoiceBox>
+
+            <ChoiceBox fx:id="seniorstudent" layoutX="412.0" layoutY="129.0" prefHeight="15.0" prefWidth="162.0">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="1" />
+                        <String fx:value="2" />
+                        <String fx:value="3" />
+                    </FXCollections>
+                </items>
+            </ChoiceBox>
+         <AnchorPane fx:id="customplate" accessibleText="456456456456" layoutX="312.0" layoutY="178.0" prefHeight="190.0" prefWidth="248.0" visible="false">
+            <children>
+               <Label layoutY="13.0" prefHeight="28.0" prefWidth="98.0" text="（自定义时间段）" textOverrun="CENTER_ELLIPSIS" />
+               <Button layoutX="9.0" layoutY="40.0" mnemonicParsing="false" onMouseClicked="#addtimecustom" prefHeight="26.0" prefWidth="80.0" text="添加时间段" />
+               <VBox fx:id="timebox" layoutX="102.0" layoutY="13.0" prefHeight="200.0" prefWidth="100.0" />
+               <Button layoutX="9.0" layoutY="80.0" mnemonicParsing="false" onMouseClicked="#subtimecustom" prefHeight="26.0" prefWidth="80.0" text="减少时间段" />
+            </children>
+         </AnchorPane>
+   
+                                                <Button defaultButton="true" layoutX="566.0" layoutY="310.0" mnemonicParsing="false" onMouseClicked="#beginwork" prefHeight="48.0" prefWidth="82.0" text="开始排班" />
+         <RadioButton fx:id="Buttoncustom" layoutX="493.0" layoutY="162.0" mnemonicParsing="false" onMouseClicked="#showcustom" text="自定义">
+            <toggleGroup>
+               <ToggleGroup fx:id="Custom" />
+            </toggleGroup>
+         </RadioButton>
+         <RadioButton fx:id="Buttondefault" layoutX="411.0" layoutY="162.0" mnemonicParsing="false" onMouseClicked="#notshowcustom" selected="true" text="默认" toggleGroup="$Custom" />
+         <TextField fx:id="Scheduletitle" layoutX="22.0" layoutY="322.0" prefHeight="23.0" prefWidth="238.0" />
+         <Label layoutX="24.0" layoutY="282.0" prefHeight="15.0" prefWidth="112.0" text="值班表标题" textOverrun="CENTER_ELLIPSIS">
+            <font>
+               <Font size="21.0" />
+            </font>
+         </Label>
+         <TextField fx:id="Tooltiptext" layoutY="383.0" prefHeight="70.0" prefWidth="652.0" />
+    </AnchorPane>
+  </children>
+</VBox>
