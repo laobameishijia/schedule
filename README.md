@@ -73,7 +73,8 @@
    ![20210220095811](https://laoba-1304292449.cos.ap-chengdu.myqcloud.com/img/20210220095811.png)
 
 ###### 9. 成功排班---成功之后最下面的框框，会提示如下文本。  
-    ![20210220095844](https://laoba-1304292449.cos.ap-chengdu.myqcloud.com/img/20210220095844.png)
-    效果：
-    ![20210223103315](https://laoba-1304292449.cos.ap-chengdu.myqcloud.com/img/20210223103315.png)
+   ![20210220095844](https://laoba-1304292449.cos.ap-chengdu.myqcloud.com/img/20210220095844.png)
+    
+效果：
+   ![20210223103315](https://laoba-1304292449.cos.ap-chengdu.myqcloud.com/img/20210223103315.png)
 
