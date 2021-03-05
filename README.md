@@ -10,6 +10,8 @@
 1.  下载，ide打开
 2.  运行Ui下面的Main类即可
 
+在debug的时候，先在Schedule\Main中进行，不要使用javafx图形页面，否则会出现一堆关于javafx的断点
+
 #### 第三方包
 1.  使用Maven工程下载
 2.  javafx的包在Maven工程中下载失败，所以选择在本地下载之后添加的。
