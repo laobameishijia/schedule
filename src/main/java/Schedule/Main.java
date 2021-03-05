@@ -224,7 +224,9 @@ public class Main {
     public static List Inspectiondocuments1(String path) {
         String filePath = path;
         InputStream fis = null;
-        List problem = Collections.singletonList(new int[]{0, 0});
+        List problem =new ArrayList();
+        problem.add(0);
+        problem.add(0);
         try {
             fis = new FileInputStream(filePath);
             Workbook workbook = null;
@@ -260,9 +262,9 @@ public class Main {
             int sheet0_coloumNum = sheet.getRow(0).getPhysicalNumberOfCells();////7
             int sheet0_rowNum = sheet.getPhysicalNumberOfRows();//编号1开始的。excel里面是从1开始的
             List list = new ArrayList();
-
             list.add(sheet0_coloumNum);
             list.add(sheet0_rowNum-1);
+
             if (sheet0_coloumNum != standardcoloumn || sheet0_rowNum != standardrows) {
                 return problem;
             } else return list;
@@ -286,7 +288,9 @@ public class Main {
 
     //审查班数表是否符合标准
     public static List Inspectiondocuments2(String path) {
-        List problem = Collections.singletonList(new int[]{0, 0});
+        List problem =new ArrayList();
+        problem.add(0);
+        problem.add(0);
         String filePath = path;
         InputStream fis = null;
         try {
@@ -310,7 +314,11 @@ public class Main {
             list.add(sheet1_coloumNum);
             list.add(sheet1_rowNum);
 
-            return list;
+            //这里仍然没有办法判断人数，也就是是否存在很多空的行
+            if (sheet1_coloumNum!=3) {
+                return problem;
+            }
+            else { return list;}
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -959,6 +967,7 @@ public class Main {
     }
 
     //    public static void main(ArrayList<String> args) {
+    //debug专用，在图形文件的地方debug会出现很多与图形页面有关的步骤，不方便
     public static void main(String[] args) {
 //        filepath = args.get(0);
 //        scheduletype = args.get(1);
@@ -967,7 +976,7 @@ public class Main {
 //        customornot = args.get(4);
 //        timelist =convertStringToList(args.get(5),",");
 //        title = args.get(6);
-        filepath = "C://Users//Administrator//Desktop//2020江安秋季面试后值班表.xlsx";
+        filepath = "C://Users//Administrator//Desktop//2021年春季学期空闲时间表.xlsx";
         scheduletype = "新同学排班";
         dutynumber = 3;
         oldnumber = 1;
@@ -979,6 +988,9 @@ public class Main {
 
         System.out.println(filepath + scheduletype + dutynumber + oldnumber + customornot + timelist);
 
+
+       List list = Inspectiondocuments1(filepath);
+       List list1 = Inspectiondocuments2(filepath);
 
         getallstudents(filepath);
         System.out.println("读取学生名单....");

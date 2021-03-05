@@ -23,6 +23,8 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static java.lang.System.exit;
+
 public class MainController {
 
     //Fxml可以直接通过这个fx:id来更新相关的页面。这比swing方便
@@ -449,9 +451,16 @@ public class MainController {
             //检验文件是否符合标准
             List list1 = Schedule.Main.Inspectiondocuments1(path);
             List list2 = Schedule.Main.Inspectiondocuments2(path);
+
             int day = (int) list1.get(0);
             int timecount = (int) list1.get(1);
             int peoplecount = (int) list2.get(1);
+
+            if (day==0||timecount==0||peoplecount==0) {
+                tip5("文件格式与要求不符，将样本文件另存为后，再使用。");
+                exit(0);
+            }
+
             //模态框提示,为什么这个alert1，在文字显示上面，不如之前的那个alert显示的多呢？？
             Alert alert1 = new Alert(Alert.AlertType.CONFIRMATION);
             alert1.initOwner(App.primaryStage);
